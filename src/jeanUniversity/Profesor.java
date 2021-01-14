@@ -167,7 +167,7 @@ public class Profesor extends Persona implements IPersona {
 							System.out.print("Ingresa la calificación de "
 									+ grupos.get(opcion).getEstudiantes().get(i).getNombre() + " "
 									+ grupos.get(opcion).getEstudiantes().get(i).getApellido() + " en el examen "
-									+ (j + 1) + " (sobre una escala de 100): ");
+									+ (j + 1) + " (sobre una escala de 20): ");
 							calEx += scanner.nextDouble();
 						}
 						System.out.println(calEx);
@@ -175,7 +175,7 @@ public class Profesor extends Persona implements IPersona {
 							System.out.print("Ingresa la calificación de "
 									+ grupos.get(opcion).getEstudiantes().get(i).getNombre() + " "
 									+ grupos.get(opcion).getEstudiantes().get(i).getApellido() + " en la practica "
-									+ (j + 1) + " (sobre una escala de 100): ");
+									+ (j + 1) + " (sobre una escala de 20): ");
 							calPrac += scanner.nextDouble();
 						}
 						System.out.println(calPrac);
