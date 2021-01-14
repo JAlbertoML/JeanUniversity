@@ -25,18 +25,19 @@ public class Profesor extends Persona implements IPersona {
 		String[] dateSplited = new String[3];
 		LocalDate fechaIngreso = null;
 		System.out.print("\tIngresa la asignatura del grupo: ");
-		String asignatura = scanner.next();
+		String asignatura = scanner.nextLine();
 		System.out.println("Ahora hay que agregar estudiantes al grupo.");
 		do {
 			System.out.print("\tIngresa el id del estudiante: ");
 			Integer id = scanner.nextInt();
+			scanner.nextLine();
 			System.out.print("\tIngresa el nombre del estudiante: ");
-			String nombre = scanner.next();
+			String nombre = scanner.nextLine();
 			System.out.print("\tIngresa el apellido del estudiante: ");
-			String apellido = scanner.next();
+			String apellido = scanner.nextLine();
 			do {
 				System.out.print("\tIngresa la fecha de ingreso en formato DD/MM/AAAA (incluyendo las diagonales): ");
-				date = scanner.next();
+				date = scanner.nextLine();
 				if (date.length() == 10) {
 					dateSplited = date.split("/");
 					try {
@@ -55,15 +56,17 @@ public class Profesor extends Persona implements IPersona {
 				}
 			} while (true);
 			System.out.print("\tIngresa la carrera del estudiante: ");
-			String carrera = scanner.next();
+			String carrera = scanner.nextLine();
 			System.out.print("\tIngresa el numero de créditos del estudiante: ");
 			Integer unidadCreditos = scanner.nextInt();
+			scanner.nextLine();
 			System.out.print("\tIngresa el semestre del estudiante: ");
 			Integer semestre = scanner.nextInt();
+			scanner.nextLine();
 			estudiantes.put(estudiantes.size() + 1,
 					new Estudiante(id, nombre, apellido, fechaIngreso, asignatura, carrera, unidadCreditos, semestre));
 			System.out.print("Deseas agregar otro estudiante? (S: Si / N: No): ");
-			respuesta = scanner.next().charAt(0);
+			respuesta = scanner.nextLine().charAt(0);
 		} while (respuesta == 's' || respuesta == 'S');
 		grupos.put(grupos.size() + 1, new Grupo(asignatura, estudiantes));
 	}
@@ -120,27 +123,32 @@ public class Profesor extends Persona implements IPersona {
 			}
 			System.out.print("Elija un grupo: ");
 			opcion = scanner.nextInt();
+			scanner.nextLine();
 			if (opcion > grupos.size() || opcion < 1) {
 				System.err.println("La opción que elegiste no es valida.");
 			} else {
 				do {
 					System.out.print("Numero de examanes realizados en este grupo: ");
 					examenes = scanner.nextInt();
+					scanner.nextLine();
 					if (examenes == 0) {
 						valorExamenes = 0;
 					} else {
 						System.out
 								.print("Ingresa el porcentaje de valor de los examenes sobre la calificación final: ");
 						valorExamenes = scanner.nextInt();
+						scanner.nextLine();
 					}
 					System.out.print("Numero de practicas realizadas en este grupo: ");
 					practicas = scanner.nextInt();
+					scanner.nextLine();
 					if (practicas == 0) {
 						valorPracticas = 0;
 					} else {
 						System.out
 								.print("Ingresa el porcentaje de valor de las prácticas sobre la calificación final: ");
 						valorPracticas = scanner.nextInt();
+						scanner.nextLine();
 					}
 					if (valorExamenes + valorPracticas == 0) {
 						break;

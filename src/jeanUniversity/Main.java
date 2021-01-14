@@ -12,6 +12,7 @@ public class Main {
 			System.out.println("\t1.- Administrador\n\t2.- Profesor\n\t3.- Salir");
 			System.out.print("Elije un rol: ");
 			opcion = scanner.nextInt();
+			scanner.nextLine();
 			switch (opcion) {
 			case 1:
 				Administrador.ejecutar();

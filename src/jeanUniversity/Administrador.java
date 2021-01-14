@@ -20,6 +20,7 @@ public class Administrador {
 					"\t1.- Agregar profesor\n\t2.- Agregar grupo a profesor\n\t3.- Imprimir reportes\n\t4.- Volver");
 			System.out.print("Elige una opción: ");
 			opcion = scanner.nextInt();
+			scanner.nextLine();
 			switch (opcion) {
 			case 1:
 				agregarProfesor();
@@ -42,7 +43,7 @@ public class Administrador {
 				break;
 			}
 			System.out.print("Deseas volver al menú de administrador? (S: si / N: no): ");
-			repetir = scanner.next().charAt(0);
+			repetir = scanner.nextLine().charAt(0);
 		} while (repetir == 'S' || repetir == 's');
 	}
 
@@ -53,13 +54,14 @@ public class Administrador {
 		System.out.println("\nAGREGAR PROFESOR");
 		System.out.print("\tIngresa el id: ");
 		Integer id = scanner.nextInt();
+		scanner.nextLine();
 		System.out.print("\tIngresa el nombre: ");
-		String nombre = scanner.next();
+		String nombre = scanner.nextLine();
 		System.out.print("\tIngresa el apellido: ");
-		String apellido = scanner.next();
+		String apellido = scanner.nextLine();
 		do {
 			System.out.print("\tIngresa la fecha de ingreso en formato DD/MM/AAAA (incluyendo las diagonales): ");
-			date = scanner.next();
+			date = scanner.nextLine();
 			if (date.length() == 10) {
 				dateSplited = date.split("/");
 				try {
@@ -91,6 +93,7 @@ public class Administrador {
 			}
 			System.out.print("Elige un profesor: ");
 			Integer eleccion = scanner.nextInt();
+			scanner.nextLine();
 			if (eleccion > profesores.size()) {
 				System.err.println("La opción que elgiste no es valida.");
 			} else {
@@ -110,6 +113,7 @@ public class Administrador {
 			}
 			System.out.print("Ingresa el numero que tiene tu nombre: ");
 			Integer opcion = scanner.nextInt();
+			scanner.nextLine();
 			if (opcion > profesores.size()) {
 				System.err.println("La opción que elgiste no es valida.");
 			} else {
@@ -126,6 +130,7 @@ public class Administrador {
 			System.out.println("\t1.- Profesores\n\t2.- Estudiantes\n\t3.- Volver");
 			System.out.print("Elige una opción: ");
 			eleccion = scanner.nextInt();
+			scanner.nextLine();
 			switch (eleccion) {
 			case 1:
 				if (profesores.size() == 0) {
@@ -147,7 +152,7 @@ public class Administrador {
 				break;
 			}
 			System.out.print("Deseas volver al menú de reportes? (S: Si / N: No): ");
-			repetir = scanner.next().charAt(0);
+			repetir = scanner.nextLine().charAt(0);
 		} while (repetir == 's' || repetir == 'S');
 	}
 
@@ -162,6 +167,7 @@ public class Administrador {
 			}
 			System.out.print("Elige un profesor: ");
 			eleccion = scanner.nextInt();
+			scanner.nextLine();
 			if (eleccion <= 0 || eleccion > profesores.size()) {
 				System.err.println("La opción que elegiste no es valida");
 			} else {
@@ -182,6 +188,7 @@ public class Administrador {
 			}
 			System.out.print("Elige un profesor: ");
 			eleccionProfe = scanner.nextInt();
+			scanner.nextLine();
 			if (eleccionProfe <= 0 || eleccionProfe > profesores.size()) {
 				System.err.println("La opción que elegiste no es valida");
 			} else {
@@ -197,6 +204,7 @@ public class Administrador {
 						}
 						System.out.print("Elige un grupo: ");
 						eleccionGrupo = scanner.nextInt();
+						scanner.nextLine();
 						if (eleccionGrupo <= 0 || eleccionGrupo > profesores.get(eleccionProfe).getGrupos().size()) {
 							System.err.println("La opción que elegiste no es valida");
 						} else {
@@ -212,6 +220,7 @@ public class Administrador {
 								}
 								System.out.print("Elige un estudiante: ");
 								eleccionEtudiante = scanner.nextInt();
+								scanner.nextLine();
 								if (eleccionEtudiante <= 0 || eleccionEtudiante > profesores.get(eleccionProfe)
 										.getGrupos().get(eleccionGrupo).getEstudiantes().size()) {
 									System.err.println("La opción que elegiste no es valida");
