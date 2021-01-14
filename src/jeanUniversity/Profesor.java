@@ -132,6 +132,7 @@ public class Profesor extends Persona implements IPersona {
 					examenes = scanner.nextInt();
 					scanner.nextLine();
 					if (examenes == 0) {
+						examenes = -1;
 						valorExamenes = 0;
 					} else {
 						System.out
@@ -143,6 +144,7 @@ public class Profesor extends Persona implements IPersona {
 					practicas = scanner.nextInt();
 					scanner.nextLine();
 					if (practicas == 0) {
+						practicas = -1;
 						valorPracticas = 0;
 					} else {
 						System.out
@@ -163,21 +165,25 @@ public class Profesor extends Persona implements IPersona {
 					System.err.println("No se puede evaluar este grupo pues no se trabajó");
 				} else {
 					for (int i = 1; i <= grupos.get(opcion).getEstudiantes().size(); i++) {
-						calEx = 0.0;
-						calPrac = 0.0;
-						for (int j = 0; j < examenes; j++) {
-							System.out.print("Ingresa la calificación de "
-									+ grupos.get(opcion).getEstudiantes().get(i).getNombre() + " "
-									+ grupos.get(opcion).getEstudiantes().get(i).getApellido() + " en el examen "
-									+ (j + 1) + " (sobre una escala de 20): ");
-							calEx += scanner.nextDouble();
+						calEx = (double) 0.0;
+						calPrac = (double) 0.0;
+						if (examenes != -1) {
+							for (int j = 0; j < examenes; j++) {
+								System.out.print("Ingresa la calificación de "
+										+ grupos.get(opcion).getEstudiantes().get(i).getNombre() + " "
+										+ grupos.get(opcion).getEstudiantes().get(i).getApellido() + " en el examen "
+										+ (j + 1) + " (sobre una escala de 20): ");
+								calEx += scanner.nextDouble();
+							}
 						}
-						for (int j = 0; j < practicas; j++) {
-							System.out.print("Ingresa la calificación de "
-									+ grupos.get(opcion).getEstudiantes().get(i).getNombre() + " "
-									+ grupos.get(opcion).getEstudiantes().get(i).getApellido() + " en la practica "
-									+ (j + 1) + " (sobre una escala de 20): ");
-							calPrac += scanner.nextDouble();
+						if (practicas != -1) {
+							for (int j = 0; j < practicas; j++) {
+								System.out.print("Ingresa la calificación de "
+										+ grupos.get(opcion).getEstudiantes().get(i).getNombre() + " "
+										+ grupos.get(opcion).getEstudiantes().get(i).getApellido() + " en la practica "
+										+ (j + 1) + " (sobre una escala de 20): ");
+								calPrac += scanner.nextDouble();
+							}
 						}
 						promedio = ((((double) calEx / (double) examenes) * ((double) valorExamenes / 100))
 								+ ((double) calPrac / (double) practicas) * ((double) valorPracticas / 100));
