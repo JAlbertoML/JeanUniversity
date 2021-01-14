@@ -170,7 +170,6 @@ public class Profesor extends Persona implements IPersona {
 									+ (j + 1) + " (sobre una escala de 20): ");
 							calEx += scanner.nextDouble();
 						}
-						System.out.println(calEx);
 						for (int j = 0; j < practicas; j++) {
 							System.out.print("Ingresa la calificación de "
 									+ grupos.get(opcion).getEstudiantes().get(i).getNombre() + " "
@@ -178,7 +177,6 @@ public class Profesor extends Persona implements IPersona {
 									+ (j + 1) + " (sobre una escala de 20): ");
 							calPrac += scanner.nextDouble();
 						}
-						System.out.println(calPrac);
 						promedio = ((((double) calEx / (double) examenes) * ((double) valorExamenes / 100))
 								+ ((double) calPrac / (double) practicas) * ((double) valorPracticas / 100));
 						grupos.get(opcion).getEstudiantes().get(i).setPromedio(promedio);
