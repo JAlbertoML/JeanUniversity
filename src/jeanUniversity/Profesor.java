@@ -163,6 +163,8 @@ public class Profesor extends Persona implements IPersona {
 					System.err.println("No se puede evaluar este grupo pues no se trabajó");
 				} else {
 					for (int i = 1; i <= grupos.get(opcion).getEstudiantes().size(); i++) {
+						calEx = 0.0;
+						calPrac = 0.0;
 						for (int j = 0; j < examenes; j++) {
 							System.out.print("Ingresa la calificación de "
 									+ grupos.get(opcion).getEstudiantes().get(i).getNombre() + " "
